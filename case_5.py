@@ -67,28 +67,28 @@ with open('input.txt') as inp_file:
         ps = (a + b + c + d) / 6 * 100
         if comp % 1 == 0:
             comp = int(comp // 1)
-            comp = '{0:7.0f}'.format(comp)
+            comp = '{0:<7.0f}'.format(comp)
         else:
-            comp = '{0:7.2f}'.format(comp)
+            comp = '{0:<7.2f}'.format(comp)
         if att % 1 == 0:
             att = int(att // 1)
-            att = '{0:7.0f}'.format(att)
+            att = '{0:<7.0f}'.format(att)
         else:
-            att = '{0:7.2f}'.format(att)
+            att = '{0:<7.2f}'.format(att)
         if yds % 1 == 0:
             yds = int(yds // 1)
-            yds = '{0:7.0f}'.format(yds)
+            yds = '{0:<7.0f}'.format(yds)
         else:
-            yds = '{0:7.2f}'.format(yds)
+            yds = '{0:<7.2f}'.format(yds)
         if td % 1 == 0:
             td = int(td // 1)
-            td = '{0:7.0f}'.format(td)
+            td = '{0:<7.0f}'.format(td)
         else:
-            td = '{0:7.2f}'.format(td)
+            td = '{0:<7.2f}'.format(td)
         if tni % 1 == 0:
             tni = int(tni // 1)
-            tni = '{0:7.0f}'.format(tni)
+            tni = '{0:<7.0f}'.format(tni)
         else:
-            tni = '{0:7.2f}'.format(tni)
-        print(name.ljust(20), comp, att, yds, td, tni, '{0:7.2f}'.format(ps))
+            tni = '{0:<7.2f}'.format(tni)
+        print(name.ljust(20), comp, att, yds, td, tni, '{0:<7.2f}'.format(ps))
 
