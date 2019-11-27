@@ -25,8 +25,11 @@ with open('input.txt') as inp_file:
             total = total[i + 1:]
             i = total.find('</td>')
             m = total.find('<td>')
-        total_2 = new_total[:28]
-
+        total_2 = new_total
+        zap = total_2.find(',')
+        while zap != -1:
+            total_2 = total_2[:zap] + '.' + total_2[zap + 1:]
+            zap = total_2.find(',')
         probel = total_2.find(' ')
         comp = float(total_2[:probel])
         total_2 = total_2[probel + 1:]
@@ -47,7 +50,45 @@ with open('input.txt') as inp_file:
         total_2 = total_2[probel + 1:]
         probel = total_2.find(' ')
         tni = float(total_2[:probel])
-        print(name, new_total[:30])
-
-
+        if comp % 1 == 0:
+            comp = int(comp // 1)
+        if att % 1 == 0:
+            att = int(att // 1)
+        if yds % 1 == 0:
+            yds = int(yds // 1)
+        if td % 1 == 0:
+            td = int(td // 1)
+        if tni % 1 == 0:
+            tni = int(tni // 1)
+        a = (comp / att - 0.3) * 5
+        b = (yds / att - 3) * 0.25
+        c = (td / att) * 20
+        d = 2.375 - (tni / att * 25)
+        ps = (a + b + c + d) / 6 * 100
+        if comp % 1 == 0:
+            comp = int(comp // 1)
+            comp = '{0:7.0f}'.format(comp)
+        else:
+            comp = '{0:7.2f}'.format(comp)
+        if att % 1 == 0:
+            att = int(att // 1)
+            att = '{0:7.0f}'.format(att)
+        else:
+            att = '{0:7.2f}'.format(att)
+        if yds % 1 == 0:
+            yds = int(yds // 1)
+            yds = '{0:7.0f}'.format(yds)
+        else:
+            yds = '{0:7.2f}'.format(yds)
+        if td % 1 == 0:
+            td = int(td // 1)
+            td = '{0:7.0f}'.format(td)
+        else:
+            td = '{0:7.2f}'.format(td)
+        if tni % 1 == 0:
+            tni = int(tni // 1)
+            tni = '{0:7.0f}'.format(tni)
+        else:
+            tni = '{0:7.2f}'.format(tni)
+        print(name.ljust(20), comp, att, yds, td, tni, '{0:7.2f}'.format(ps))
 
