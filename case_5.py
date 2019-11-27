@@ -91,4 +91,6 @@ with open('input.txt') as inp_file:
         else:
             tni = '{0:<7.2f}'.format(tni)
         print(name.ljust(20), comp, att, yds, td, tni, '{0:<7.2f}'.format(ps))
-
+        file_out = open('output.txt', w)
+        print(name.ljust(20), comp, att, yds, td, tni, '{0:<7.2f}'.format(ps),file=file_out)
+        file_out.close()
