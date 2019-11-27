@@ -18,10 +18,36 @@ with open('input.txt') as inp_file:
         new_total = ''
         i = total.find('</td>')
         m = total.find('<td>')
+        count = 1
         while i != -1:
-            num = total[m + 4: i]
+            num = str(total[m + 4: i])
             new_total += num + ' '
             total = total[i + 1:]
             i = total.find('</td>')
             m = total.find('<td>')
-        print(name, new_total)
+        total_2 = new_total[:28]
+
+        probel = total_2.find(' ')
+        comp = float(total_2[:probel])
+        total_2 = total_2[probel + 1:]
+        probel = total_2.find(' ')
+        att = float(total_2[:probel])
+        total_2 = total_2[probel + 1:]
+        probel = total_2.find(' ')
+        pct = total_2[:probel]
+        total_2 = total_2[probel + 1:]
+        probel = total_2.find(' ')
+        yds = float(total_2[:probel])
+        total_2 = total_2[probel + 1:]
+        probel = total_2.find(' ')
+        avg = total_2[:probel]
+        total_2 = total_2[probel + 1:]
+        probel = total_2.find(' ')
+        td = float(total_2[:probel])
+        total_2 = total_2[probel + 1:]
+        probel = total_2.find(' ')
+        tni = float(total_2[:probel])
+        print(name, new_total[:30])
+
+
+
