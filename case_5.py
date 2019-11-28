@@ -30,26 +30,32 @@ with open('input.txt') as inp_file:
         while zap != -1:
             total_2 = total_2[:zap] + '.' + total_2[zap + 1:]
             zap = total_2.find(',')
-        probel = total_2.find(' ')
-        comp = float(total_2[:probel])
-        total_2 = total_2[probel + 1:]
-        probel = total_2.find(' ')
-        att = float(total_2[:probel])
-        total_2 = total_2[probel + 1:]
-        probel = total_2.find(' ')
-        pct = total_2[:probel]
-        total_2 = total_2[probel + 1:]
-        probel = total_2.find(' ')
-        yds = float(total_2[:probel])
-        total_2 = total_2[probel + 1:]
-        probel = total_2.find(' ')
-        avg = total_2[:probel]
-        total_2 = total_2[probel + 1:]
-        probel = total_2.find(' ')
-        td = float(total_2[:probel])
-        total_2 = total_2[probel + 1:]
-        probel = total_2.find(' ')
-        tni = float(total_2[:probel])
+        prob = total_2.find(' ')
+        comp = float(total_2[:prob])
+        total_2 = total_2[prob + 1:]
+        prob = total_2.find(' ')
+
+        att = float(total_2[:prob])
+        total_2 = total_2[prob + 1:]
+        prob = total_2.find(' ')
+
+        pct = total_2[:prob]
+        total_2 = total_2[prob + 1:]
+        prob = total_2.find(' ')
+
+        yds = float(total_2[:prob])
+        total_2 = total_2[prob + 1:]
+        prob = total_2.find(' ')
+
+        avg = total_2[:prob]
+        total_2 = total_2[prob + 1:]
+        prob = total_2.find(' ')
+
+        td = float(total_2[:prob])
+        total_2 = total_2[prob + 1:]
+        prob = total_2.find(' ')
+        tni = float(total_2[:prob])
+
         if comp % 1 == 0:
             comp = int(comp // 1)
         if att % 1 == 0:
@@ -65,6 +71,8 @@ with open('input.txt') as inp_file:
         c = (td / att) * 20
         d = 2.375 - (tni / att * 25)
         ps = (a + b + c + d) / 6 * 100
+        ps = '{0:<7.0f}'.format(ps)
+
         if comp % 1 == 0:
             comp = int(comp // 1)
             comp = '{0:<7.0f}'.format(comp)
@@ -90,7 +98,9 @@ with open('input.txt') as inp_file:
             tni = '{0:<7.0f}'.format(tni)
         else:
             tni = '{0:<7.2f}'.format(tni)
-        print(name.ljust(20), comp, att, yds, td, tni, '{0:<7.2f}'.format(ps))
-        file_out = open('output.txt', w)
-        print(name.ljust(20), comp, att, yds, td, tni, '{0:<7.2f}'.format(ps),file=file_out)
+
+        print(name.ljust(20),comp, att, yds, td, tni, ps)
+        file_out = open('output.txt', 'w')
+        print(name.ljust(20), comp, att, yds, td, tni, ps, file=file_out)
         file_out.close()
+
