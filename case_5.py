@@ -1,7 +1,7 @@
 """Case-study #5 Парсинг web-страниц
 Developers:
-Panyukova E.
-Kuznetsova K.
+Panyukova E. 67%
+Kuznetsova K. 61%
 
 """
 file_out = open('output.txt', 'w')                                      # Create  file output.txt of delete text in it
