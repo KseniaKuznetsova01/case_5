@@ -6,6 +6,7 @@ Kuznetsova K.
 """
 import urllib.request
 with open('input.txt') as inp_file:
+
     for line in inp_file.readlines():
         url = line
         f = urllib.request.urlopen(url)
@@ -103,4 +104,3 @@ with open('input.txt') as inp_file:
         file_out = open('output.txt', 'w')
         print(name.ljust(20), comp, att, yds, td, tni, ps, file=file_out)
         file_out.close()
-
