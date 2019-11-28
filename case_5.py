@@ -4,6 +4,8 @@ Panyukova E.
 Kuznetsova K.
 
 """
+file_out = open('output.txt', 'w')
+file_out.close()
 import urllib.request
 with open('input.txt') as inp_file:
     for line in inp_file.readlines():
@@ -100,7 +102,7 @@ with open('input.txt') as inp_file:
             tni = '{0:<7.2f}'.format(tni)
 
         print(name.ljust(20), comp, att, yds, td, tni, ps)
-        file_out = open('output.txt', 'w')
+        file_out = open('output.txt', 'a')
         print(name.ljust(20), comp, att, yds, td, tni, ps, file=file_out)
         file_out.close()
 
