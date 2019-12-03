@@ -1,14 +1,13 @@
 """Case-study #5 Парсинг web-страниц
 Developers:
-Panyukova E.
-Kuznetsova K.
+Panyukova E. 67%
+Kuznetsova K. 61%
 
 """
-file_out = open('output.txt', 'w')
+file_out = open('output.txt', 'w')                                      # Create  file output.txt of delete text in it
 file_out.close()
 import urllib.request
-with open('input.txt') as inp_file:
-
+with open('input.txt') as inp_file:                                     # Open file input.txt and use link
     for line in inp_file.readlines():
         url = line
         f = urllib.request.urlopen(url)
@@ -29,11 +28,11 @@ with open('input.txt') as inp_file:
             i = total.find('</td>')
             m = total.find('<td>')
         total_2 = new_total
-        zap = total_2.find(',')
+        zap = total_2.find(',')                                         # Change commas for float
         while zap != -1:
             total_2 = total_2[:zap] + '.' + total_2[zap + 1:]
             zap = total_2.find(',')
-        prob = total_2.find(' ')
+        prob = total_2.find(' ')                                        # Found values using spaced
         comp = float(total_2[:prob])
         total_2 = total_2[prob + 1:]
         prob = total_2.find(' ')
@@ -59,7 +58,7 @@ with open('input.txt') as inp_file:
         prob = total_2.find(' ')
         tni = float(total_2[:prob])
 
-        if comp % 1 == 0:
+        if comp % 1 == 0:                                            # Change float to int
             comp = int(comp // 1)
         if att % 1 == 0:
             att = int(att // 1)
@@ -76,7 +75,7 @@ with open('input.txt') as inp_file:
         ps = (a + b + c + d) / 6 * 100
         ps = '{0:<7.0f}'.format(ps)
 
-        if comp % 1 == 0:
+        if comp % 1 == 0:                                          # Round off
             comp = int(comp // 1)
             comp = '{0:<7.0f}'.format(comp)
         else:
@@ -102,7 +101,7 @@ with open('input.txt') as inp_file:
         else:
             tni = '{0:<7.2f}'.format(tni)
 
-        print(name.ljust(20), comp, att, yds, td, tni, ps)
-        file_out = open('output.txt', 'a')
+        file_out = open('output.txt', 'a')                       # Save to file output.txt
         print(name.ljust(20), comp, att, yds, td, tni, ps, file=file_out)
         file_out.close()
+
