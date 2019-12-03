@@ -4,14 +4,16 @@ Panyukova E. 67%
 Kuznetsova K. 61%
 
 """
+import urllib.request
+
 file_out = open('output.txt', 'w')                                      # Create  file output.txt of delete text in it
 file_out.close()
-import urllib.request
+
 with open('input.txt') as inp_file:                                     # Open file input.txt and use link
     for line in inp_file.readlines():
         url = line
-        f = urllib.request.urlopen(url)
-        s = f.read()
+        f = urllib.request.urlopen(url)                                 # Open the URL url.
+        s = f.read()                                                    # Reading URL string.
         text = str(s)
         part_name = text.find('player-name')
         name = text[text.find('>', part_name)+1:text.find('&', part_name)]
@@ -21,14 +23,16 @@ with open('input.txt') as inp_file:                                     # Open f
         i = total.find('</td>')
         m = total.find('<td>')
         count = 1
+
         while i != -1:
-            num = str(total[m + 4: i])
+            num = str(total[m + 4: i])                                  # Cut the numbers.
             new_total += num + ' '
             total = total[i + 1:]
             i = total.find('</td>')
             m = total.find('<td>')
         total_2 = new_total
         zap = total_2.find(',')                                         # Change commas for float
+
         while zap != -1:
             total_2 = total_2[:zap] + '.' + total_2[zap + 1:]
             zap = total_2.find(',')
@@ -102,6 +106,7 @@ with open('input.txt') as inp_file:                                     # Open f
             tni = '{0:<7.2f}'.format(tni)
 
         file_out = open('output.txt', 'a')                       # Save to file output.txt
-        print(name.ljust(20), comp, att, yds, td, tni, ps, file=file_out)
+        print(name.ljust(20), comp, att,
+              yds, td, tni, ps, file=file_out)
         file_out.close()
 
